@@ -1,10 +1,7 @@
 package boston.codingdojo;
 
-import boston.codingdojo.GildedRose;
-import boston.codingdojo.Item;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class AgedBrieTest {
@@ -32,7 +29,7 @@ public class AgedBrieTest {
 		int expectedDaysToExpire = daysToExpire + GildedRose.DEFAULT_DELTA_SELL_IN;
 		Item item = createInnWithStandardAgedBrie(daysToExpire, quality);
 		inn.updateQuality();
-		assertEquals(expectedDaysToExpire, item.daysToExpire);
+		assertEquals(expectedDaysToExpire, item.sell_in);
 	}
 	
 	@Test

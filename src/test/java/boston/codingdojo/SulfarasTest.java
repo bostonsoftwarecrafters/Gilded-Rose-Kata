@@ -1,10 +1,7 @@
 package boston.codingdojo;
 
-import boston.codingdojo.GildedRose;
-import boston.codingdojo.Item;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class SulfarasTest {
@@ -23,7 +20,7 @@ public class SulfarasTest {
 		Item sulfuras1 = new Item(GildedRose.PRODUCT_SULFURAS, 3, 80);
 		GildedRose inn = new GildedRose(new Item[] {sulfuras1});
 		inn.updateQuality();
-		assertEquals(3,sulfuras1.daysToExpire);
+		assertEquals(3,sulfuras1.sell_in);
 	}
 	
 //	@Test
@@ -42,7 +39,7 @@ public class SulfarasTest {
 		GildedRose inn = new GildedRose(new Item[] {sulfuras1});
 		inn.updateQuality();
 		assertEquals(80,sulfuras1.quality);
-		assertEquals(-1,sulfuras1.daysToExpire);
+		assertEquals(-1,sulfuras1.sell_in);
 	}
 
 }

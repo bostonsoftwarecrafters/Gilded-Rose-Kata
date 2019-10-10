@@ -46,13 +46,13 @@ class GildedRose {
                     items[i].quality = items[i].quality + 1;
 
                     if (items[i].name.equals(PRODUCT_BACKSTAGE_PASSES)) {
-                        if (items[i].daysToExpire < 11) {
+                        if (items[i].sell_in < 11) {
                             if (items[i].quality < MAX_STANDARD_QUALITY) {
                                 items[i].quality = items[i].quality + 1;
                             }
                         }
 
-                        if (items[i].daysToExpire < 6) {
+                        if (items[i].sell_in < 6) {
                             if (items[i].quality < MAX_STANDARD_QUALITY) {
                                 items[i].quality = items[i].quality + 1;
                             }
@@ -62,10 +62,10 @@ class GildedRose {
             }
 
             if (!items[i].name.equals(PRODUCT_SULFURAS)) {
-                items[i].daysToExpire = items[i].daysToExpire - 1;
+                items[i].sell_in = items[i].sell_in - 1;
             }
 
-            if (items[i].daysToExpire < 0) {
+            if (items[i].sell_in < 0) {
                 if (!items[i].name.equals(PRODUCT_AGED_BRIE)) {
                     if (!items[i].name.equals(PRODUCT_BACKSTAGE_PASSES)) {
                         if (items[i].quality > MIN_STANDARD_QUALITY) {

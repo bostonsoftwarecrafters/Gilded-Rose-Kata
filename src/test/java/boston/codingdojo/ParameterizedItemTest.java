@@ -1,7 +1,5 @@
 package boston.codingdojo;
 
-import boston.codingdojo.GildedRose;
-import boston.codingdojo.Item;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -9,7 +7,6 @@ import org.junit.runners.Parameterized.Parameters;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
@@ -98,9 +95,9 @@ public class ParameterizedItemTest {
 		inn.updateQuality();
 		assertEquals(expectedQuality, item.quality);
 		if (product == GildedRose.PRODUCT_SULFURAS) {
-			assertEquals (initialDaysToExpire, item.daysToExpire);
+			assertEquals (initialDaysToExpire, item.sell_in);
 		} else {
-			assertEquals (initialDaysToExpire-1, item.daysToExpire);
+			assertEquals (initialDaysToExpire-1, item.sell_in);
 		}
 		// assertEquals(expectedDaysToExpire, item.daysToExpire);
 	}
