@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class AgedBrieTest {
+public class AlternativeNoParameterAgedBrieTest {
 	
 
 
@@ -26,7 +26,7 @@ public class AgedBrieTest {
 	public void testAgedBrieDaysToExpireDecrements() {
 		int daysToExpire = 5;
 		int quality = 7;
-		int expectedDaysToExpire = daysToExpire + GildedRose.DEFAULT_DELTA_SELL_IN;
+		int expectedDaysToExpire = daysToExpire + -1;
 		Item item = createInnWithStandardAgedBrie(daysToExpire, quality);
 		inn.updateQuality();
 		assertEquals(expectedDaysToExpire, item.sell_in);
@@ -35,7 +35,7 @@ public class AgedBrieTest {
 	@Test
 	public void testAgedBrieQualityCapsAt50() {
 		int daysToExpire = 5;
-		int quality = GildedRose.MAX_STANDARD_QUALITY;
+		int quality = 50;
 		int expectedQuality = quality;
 		Item item = createInnWithStandardAgedBrie(daysToExpire, quality);
 		inn.updateQuality();
@@ -45,8 +45,8 @@ public class AgedBrieTest {
 	
 	@Test
 	public void testAgedBrieQualityStableAfterDaysToExpireAt50() {
-		int daysToExpire = GildedRose.SELL_IN_EXPIRATION;
-		int quality = GildedRose.MAX_STANDARD_QUALITY;
+		int daysToExpire = 0;
+		int quality = 50;
 		Item item = createInnWithStandardAgedBrie(daysToExpire, quality);
 		inn.updateQuality();
 		assertEquals(quality, item.quality);
@@ -54,16 +54,16 @@ public class AgedBrieTest {
 	}
 	
 	private Item createInnWithStandardAgedBrie(int daysToExpire, int quality) {
-		Item[] items = {new Item(GildedRose.PRODUCT_AGED_BRIE,daysToExpire,quality)};
+		Item[] items = {new Item("Aged Brie",daysToExpire,quality)};
 		inn = new GildedRose(items);
 		return items[0];
 	}
 
 	@Test
 	public void testAgedBrieQualityIncreasesByTwoAfterDaysToExpireUnder50() {
-		int daysToExpire = GildedRose.SELL_IN_EXPIRATION;
+		int daysToExpire = 0;
 		int quality = 46;
-		int expectedQuality = quality + GildedRose.AGED_BRIE_EXPIRED_DELTA_QUALITY;
+		int expectedQuality = quality + 1 * 2;
 		Item item = createInnWithStandardAgedBrie(daysToExpire, quality);
 		inn.updateQuality();
 		assertEquals(expectedQuality, item.quality);
