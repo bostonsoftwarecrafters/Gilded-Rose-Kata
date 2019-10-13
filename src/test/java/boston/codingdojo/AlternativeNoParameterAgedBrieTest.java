@@ -63,7 +63,7 @@ public class AlternativeNoParameterAgedBrieTest {
 	public void testAgedBrieQualityIncreasesByTwoAfterDaysToExpireUnder50() {
 		int daysToExpire = 0;
 		int quality = 46;
-		int expectedQuality = quality + 1 * 2;
+		int expectedQuality = quality + 2;
 		Item item = createInnWithStandardAgedBrie(daysToExpire, quality);
 		inn.updateQuality();
 		assertEquals(expectedQuality, item.quality);
